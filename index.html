@@ -8,50 +8,46 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="min-h-screen flex flex-col items-center">
-    <div class="container bg-[#f3f2f1] p-10 mt-5">
-        <header class="flex justify-around p-5">
-            <h1 class="text-4xl"> ZUBIRI MANTEO</h1>
-            <img src="Logoa.png" class="rounded-full h-10 w-10  float-right">
+<body class="min-h-screen flex flex-col">
+    <div class="container p-10 mt-5 content-center mx-auto">
+        <header class="flex justify-around p-5 bg-gray-300">
+            <h1 class="text-4xl">KATUXULO</h1>
+            <img src="images/KatuXulo.jpeg" class="rounded-full h-20 w-20">
         </header>
         <nav class="border-solid border-2 border-black">
-            <ul class="flex flex-row justify-center gap-10 py-2">
-                <li class="hover:bg-orange-500 rounded-md">INICIO</li>
-                <li class="hover:bg-orange-500 rounded-md">QUIENES</li>
-                <li class="hover:bg-orange-500 rounded-md">CURSOS</li>
-                <li class="hover:bg-orange-500 rounded-md">CONTACTO</li>
-            </ul>
+            <div class="md:hidden flex justify-between items-center">
+                <button id="menu-toggle" class="text-2xl focus:outline-none">
+                    &#9776; 
+                </button>
+            </div>
+        
+            <ul id="menu" class="hidden flex-col gap-2 py-2 md:flex md:flex-row md:justify-center md:gap-10">
+                <li class="hover:bg-gray-300 rounded-md px-3 py-1"><a href="index.html">Sarrera</a></li>
+                <li class="hover:bg-gray-300 rounded-md px-3 py-1"><a href="izenaEman.html">Izena eman</a></li>
+                <li class="hover:bg-gray-300 rounded-md px-3 py-1"><a href="muntaketa.html">Muntaketa</a></li>
+            </ul>            
         </nav>
-        <section class="flex md:flex-row py-5 flex-col">
-            <div class="flex flex-col items-center text-justify">
-                <h1 class="text-5xl text-black py-3">INICIO</h1>
-                <img src="Logoa.png" class="h-50 w-40 py-3">
-                <p class="py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, veritatis delectus. Nihil delectus
-                    maxime quas minima exercitationem! Qui atque ad laudantium odit, odio corporis, illum maxime sit
-                    modi facilis quidem.</p>
-                <p class="py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis nihil, consequatur, maxime
-                    voluptatum distinctio cupiditate porro animi nulla consequuntur laudantium quasi laboriosam. Vero at
-                    assumenda perspiciatis dolorum, eaque magni vitae!</p>
-                <p class="py-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque fugiat placeat perspiciatis? Eligendi
-                    mollitia ratione unde praesentium saepe et quaerat enim nam sint, ad at nesciunt optio ipsam iure
-                    ex?</p>
-            </div>
-            <div class="flex flex-col items-center">
-                <h1 class="text-5xl text-black py-4">NOTICIAS</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure neque quam molestias velit voluptas
-                    fugiat, esse perferendis explicabo officia numquam dicta architecto expedita sapiente
-                    necessitatibus, delectus officiis. Dignissimos, quos accusamus!</p>
-                <h1 class="text-5xl text-black md:mt-20 py-4">VIDEO</h1>
-                <iframe width="300" height="150" src="https://www.youtube.com/embed/T6kwiRD2zNg?si=OHkqKwYspGY0Gty6"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-        </section>
-        <footer class="flex flex-col items-center mt-4">
-            <h2 class="text-2xl">ZUBIRI MANTEO</h2>
-        </footer>
+        
+        <div class="flex flex-col md:flex-row-reverse items-center justify-center py-5 bg-gray-200">
+            <img src="images/katuxulo_rokodromoa.jpg" class="w-1/3 md:w-4/12">
+            <p class="p-5 text-justify w-3/5 bg-white p-6 rounded-lg shadow-md">
+                Eskalada zale talde bat elkartu gara, eta pasio hau partekatzeko espazio bat sortzea erabaki dugu: herriko lehen rokodromo komunitarioa! Gure helburua ez da bakarrik eskaladaren praktikak eskaintzea; baizik eta inguruko lagun, familia eta eskalada zale guztientzako topagune bihurtzea, non, esperientzia partekatuz, gure buruak gainditzeko eta gorputza indartzeko aukera izango dugun. Eskalada hastapenetatik maila aurreratuetarako horma desberdinak prestatu ditugu eskalada saio libreez gain.
+            </p>
+        </div>        
+        <footer class="flex flex-col items-center bg-gray-500">
+            <ul class="flex flex-row gap-10 justify-center text-white">
+                <li>KatuXulo</li>
+                <li>katuxulo@gmail.com</li>
+                <li>Pagoaldea Pol., 63, Local 92</li>
+            </ul>
+        </footer>        
     </div>
 </body>
-
 </html>
+
+<script>
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('hidden');
+    });
+</script>

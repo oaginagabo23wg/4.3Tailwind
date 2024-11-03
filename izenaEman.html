@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KatuXulo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen flex flex-col">
+    <div class="container p-10 mt-5 content-center mx-auto">
+        <header class="flex justify-around p-5 bg-gray-300">
+            <h1 class="text-4xl">KATUXULO</h1>
+            <img src="images/KatuXulo.jpeg" class="rounded-full h-20 w-20">
+        </header>
+        <nav class="border-solid border-2 border-black">
+            <div class="md:hidden flex justify-between items-center">
+                <button id="menu-toggle" class="text-2xl focus:outline-none">
+                    &#9776;
+                </button>
+            </div>
+        
+            <ul id="menu" class="hidden flex-col gap-2 py-2 md:flex md:flex-row md:justify-center md:gap-10">
+                <li class="hover:bg-gray-300 rounded-md px-3 py-1"><a href="index.html">Sarrera</a></li>
+                <li class="hover:bg-gray-300 rounded-md px-3 py-1"><a href="izenaEman.html">Izena eman</a></li>
+                <li class="hover:bg-gray-300 rounded-md px-3 py-1"><a href="muntaketa.html">Muntaketa</a></li>
+            </ul>            
+        </nav>
+        
+        <div class="flex flex-col items-center justify-center py-5 bg-gray-200">
+            <h2 class="text-3xl mb-4">Apuntatu zaitez gure rokodromora</h2>
+            <form class="w-full max-w-md bg-white p-6 rounded-lg shadow-md">
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Izena:</label>
+                    <input type="text" id="name" name="name" placeholder="Zure izena" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                </div>
+                <div class="mb-4">
+                    <label for="age" class="block text-gray-700 text-sm font-bold mb-2">Adina:</label>
+                    <input type="number" id="age" name="age" placeholder="Zure adina" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" required>
+                </div>
+                <div class="mb-4">
+                    <label for="reason" class="block text-gray-700 text-sm font-bold mb-2">Zergatik nahi duzu izena eman?</label>
+                    <textarea id="reason" name="reason" placeholder="Arrazoia" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="4" required></textarea>
+                </div>
+                <div class="flex items-center justify-center">
+                    <button type="submit" class="bg-blue-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                        Bidali
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <footer class="flex flex-col items-center bg-gray-500 mt-4">
+            <ul class="flex flex-row gap-10 justify-center text-white">
+                <li>KatuXulo</li>
+                <li>katuxulo@gmail.com</li>
+                <li>Pagoaldea Pol., 63, Local 92</li>
+            </ul>
+        </footer>        
+    </div>
+</body>
+</html>
+
+<script>
+    document.getElementById('menu-toggle').addEventListener('click', function () {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('hidden');
+    });
+</script> 

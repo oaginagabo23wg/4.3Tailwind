@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KatuXulo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen flex flex-col">
+    <div class="container p-10 mt-5 content-center mx-auto">
+        <header class="flex justify-around p-5 bg-gray-300">
+            <h1 class="text-4xl">KATUXULO</h1>
+            <img src="images/KatuXulo.jpeg" class="rounded-full h-20 w-20">
+        </header>
+
+        <nav class="border-solid border-2 border-black">
+            <div class="md:hidden flex justify-between items-center">
+                <button id="menu-toggle" class="text-2xl focus:outline-none">
+                    &#9776;
+                </button>
+            </div>
+            <ul id="menu" class="hidden flex-col gap-2 py-2 md:flex md:flex-row md:justify-center md:gap-10">
+                <li class="hover:bg-gray-300 rounded-md px-3 py-1"><a href="index.html">Sarrera</a></li>
+                <li class="hover:bg-gray-300 rounded-md px-3 py-1"><a href="izenaEman.html">Izena eman</a></li>
+                <li class="hover:bg-gray-300 rounded-md px-3 py-1"><a href="muntaketa.html">Muntaketa</a></li>
+            </ul>
+        </nav>
+
+        <div class="flex flex-col items-center justify-center py-5 bg-gray-200">
+            <h2 class="text-3xl mb-4">Muntaketa Prozesua</h2>
+
+            <div class="relative w-full max-w-lg">
+                <div id="carousel-images" class="relative w-full overflow-hidden">
+                    <!-- Images and Video -->
+                    <img src="images/ErosiAurretik.jpeg" class="w-full hidden" alt="Photo 1">
+                    <img src="images/HasiBerri.jpeg" class="w-full hidden" alt="Photo 2">
+                    <img src="images/grupala.jpeg" class="w-full hidden" alt="Photo 3">
+                    <video src="images/panelaJartzen.mp4" class="w-full hidden" controls></video>
+                    <img src="images/PresakZintzilik.jpeg" class="w-full hidden" alt="Photo 5">
+                </div>
+
+                <div class="w-full h-2 bg-gray-300 mt-4">
+                    <div id="progress-bar" class="h-2 bg-blue-500" style="width: 0%"></div>
+                </div>
+
+                <div class="absolute top-1/2 transform -translate-y-1/2 flex justify-between w-full px-4">
+                    <button id="prev" class="text-3xl text-gray-700">&larr;</button>
+                    <button id="next" class="text-3xl text-gray-700">&rarr;</button>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="flex flex-col items-center bg-gray-500 mt-4">
+            <ul class="flex flex-row gap-10 justify-center text-white">
+                <li>KatuXulo</li>
+                <li>katuxulo@gmail.com</li>
+                <li>Pagoaldea Pol., 63, Local 92</li>
+            </ul>
+        </footer>
+    </div>
+
+    <script>
+        const carouselItems = document.querySelectorAll("#carousel-images img, #carousel-images video");
+        const progressBar = document.getElementById("progress-bar");
+        let currentIndex = 0;
+
+        function showItem(index) {
+            carouselItems.forEach((item, i) => item.classList.toggle("hidden", i !== index));
+            progressBar.style.width = `${((index + 1) / carouselItems.length) * 100}%`;
+
+            // Pause any videos that aren't currently visible
+            carouselItems.forEach((item, i) => {
+                if (item.tagName === "VIDEO" && i !== index) {
+                    item.pause();
+                }
+            });
+        }
+
+        document.getElementById("next").addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % carouselItems.length;
+            showItem(currentIndex);
+        });
+
+        document.getElementById("prev").addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+            showItem(currentIndex);
+        });
+
+        showItem(currentIndex);
+
+        document.getElementById('menu-toggle').addEventListener('click', function () {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+
+</html>
